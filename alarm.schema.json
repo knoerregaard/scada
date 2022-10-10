@@ -1,0 +1,52 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://frontmatecbis.com/alarm.schema.json",
+	"title": "Alarm",
+	"description": "An alarm in SCADA system",
+	"type": "object",
+	"properties": {
+		"alarmId": {
+			"description": "The unique identifier for an alarm",
+			"type": "integer"
+		},
+		"alarmTitle": {
+			"description": "Title of the alarm",
+			"type": "string"
+		},
+		"alarmDescription": {
+			"description": "Description",
+			"type": "string"
+		},
+		"alarmDescriptionSecondary": {
+			"description": "Extra description field",
+			"type": "string"
+		},
+		"alarmPeriodStart": {
+			"description": "Timestamp that indicates start period of the alarm",
+			"type": "DateTime"
+		},
+		"alarmPeriodEnd": {
+			"description": "Timestamp that indicates end priod of the alarm",
+			"type": "DateTime"
+		},
+		"alarmPriority": {
+			"description": "The priority field",
+			"type": "string"
+		},
+		"tags": {
+			"description": "Tags for the alarm",
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"minItems": 1,
+			"uniqueItems": true
+		},
+		"dataTag": {
+			"description": "Reference to the datatag",
+			"$ref": "https://frontmatecbis.com/datatag.schema.json"
+		}
+
+	},
+	"required": [ "alarmId", "alarmTitle", "alarmPeriodStart" ]
+}
