@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://raw.githubusercontent.com/knoerregaard/scada/main/wwtp.schema.json",
+	"$id": "https://raw.githubusercontent.com/knoerregaard/scada/main/WaterTreatmentPlant.schema.json",
 	"title": "WaterTreatmentPlant",
 	"description": "A water treamtment plant.",
 	"type": "object",
@@ -20,7 +20,7 @@
 		"wwtpDescriptionSecondary": {
 			"description": "Extra description field",
 			"type": "string"
-		}
+		},
 		"tags": {
 			"description": "Tags for the wwtp",
 			"type": "array",
