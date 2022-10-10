@@ -1,35 +1,45 @@
 {
-	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://raw.githubusercontent.com/knoerregaard/scada/main/WaterTreatmentPlant.schema.json",
-	"title": "WaterTreatmentPlant",
-	"description": "A water treamtment plant.",
-	"type": "object",
-	"properties": {
-		"wwtpId": {
-			"description": "The unique identifier for an alarm",
-			"type": "integer"
-		},
-		"wwtpTitle": {
-			"description": "Title of the alarm",
-			"type": "string"
-		},
-		"wwtpDescription": {
-			"description": "Description",
-			"type": "string"
-		},
-		"wwtpDescriptionSecondary": {
-			"description": "Extra description field",
-			"type": "string"
-		},
-		"tags": {
-			"description": "Tags for the wwtp",
-			"type": "array",
-			"items": {
-				"type": "string"
-			},
-			"minItems": 1,
-			"uniqueItems": true
-		}
-	},
-	"required": [ "wwtpId", "wwtpTitle", "wwtpDescription" ]
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/knoerregaard/scada/main/wwtp.schema.json",
+  "title": "WaterTreatmentPlant",
+  "description": "A water treamtment plant.",
+  "type": "object",
+  "properties": {
+    "wwtpId": {
+      "description": "The unique identifier for an alarm",
+      "type": "integer"
+    },
+    "wwtpTitle": {
+      "description": "Title of the alarm",
+      "type": "string"
+    },
+    "wwtpDescription": {
+      "description": "Description",
+      "type": "string"
+    },
+    "wwtpDescriptionSecondary": {
+      "description": "Extra description field",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Tags for the wwtp",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "wwtpLocation": {
+      "description": "Coordinates of the wwtp .",
+      "$ref": "https://raw.githubusercontent.com/knoerregaard/scada/main/geographical-location.schema.json"
+    },
+    {
+      "methods": {
+
+      }
+    }
+  },
+
+  "required": [ "wwtpId", "wwtpTitle", "wwtpDescription" ]
 }
