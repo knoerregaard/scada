@@ -42,7 +42,7 @@
 			"minItems": 1,
 			"uniqueItems": true
 		},
-		"dataTag": {
+		"wwtp": {
 			"description": "Reference to the wwtp",
 			"$ref": "https://raw.githubusercontent.com/knoerregaard/scada/main/wwtp.schema.json"
 		}
