@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://frontmatecbis.com/alarm.schema.json",
+	"$id": "https://raw.githubusercontent.com/knoerregaard/scada/main/alarm.schema.json",
 	"title": "Alarm",
 	"description": "An alarm in SCADA system",
 	"type": "object",
@@ -43,8 +43,8 @@
 			"uniqueItems": true
 		},
 		"dataTag": {
-			"description": "Reference to the datatag",
-			"$ref": "https://frontmatecbis.com/datatag.schema.json"
+			"description": "Reference to the wwtp",
+			"$ref": "https://raw.githubusercontent.com/knoerregaard/scada/main/wwtp.schema.json"
 		}
 
 	},
