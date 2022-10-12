@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/knoerregaard/scada/main/Event.schema.json",
+	"title": "Event",
+	"description": "The event from streamning process",
+	"type": "object",
+	"properties": {
+		"eventId": {
+			"description": "The unique identifier for an event",
+			"type": "integer"
+		},
+		"eventTitle": {
+			"description": "Title of the event",
+			"type": "string"
+		},
+		"eventDescription": {
+			"description": "Description",
+			"type": "string"
+		},
+		"eventDescriptionSecondary": {
+			"description": "Extra description field",
+			"type": "string"
+		},
+		"contexts": {
+			"description": "Contexts that describes the event",
+			"type": "array",
+			"items": {
+				"contextTitle": {
+					"description": "The unique identifier for an event",
+					"type": "integer"
+				}
+			},
+			"minItems": 1,
+			"uniqueItems": true
+		},
+		"wwtpLocation": {
+			"description": "Coordinates of the wwtp .",
+			"$ref": "https://raw.githubusercontent.com/knoerregaard/scada/main/geographical-location.schema.json"
+		},
+		{
+			"methods": {
+
+			}
+		}
+	},
+
+	"required": [ "wwtpId", "wwtpTitle", "wwtpDescription" ]
+}
