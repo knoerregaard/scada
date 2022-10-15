@@ -2,51 +2,62 @@
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "https://raw.githubusercontent.com/knoerregaard/scada/main/alarm.schema.json",
 	"title": "Alarm",
-	"description": "An alarm in SCADA system",
+	"description": "An alarm",
 	"type": "object",
 	"properties": {
-		"alarmId": {
+		"id": {
 			"description": "The unique identifier for an alarm",
 			"type": "integer"
 		},
-		"alarmTitle": {
-			"description": "Title of the alarm",
+		"title": {
+			"description": "Title of the alarm eg. Gas emission alarm",
 			"type": "string"
 		},
-		"alarmDescription": {
-			"description": "Description",
+		"specification": {
+			"description": "Concrete specification of the alarm eg. Gas emission threshold exceeded",
 			"type": "string"
 		},
-		"alarmDescriptionSecondary": {
-			"description": "Extra description field",
+		"class": {
+			"description": "Class that the alarm belongs to eg. LOPA listed",
 			"type": "string"
 		},
-		"alarmPeriodStart": {
-			"description": "Timestamp that indicates start period of the alarm",
-			"type": "DateTime"
+		"description": {
+			"description": "Primary description field, optional",
+			"type": "string"
 		},
-		"alarmPeriodEnd": {
-			"description": "Timestamp that indicates end priod of the alarm",
-			"type": "DateTime"
+		"descriptionSecondary": {
+			"description": "Secondary description field, optional",
+			"type": "string"
 		},
-		"alarmPriority": {
+		"periodStart": {
+			"description": "Timestamp that indicates start period of the alarm,  ISO 8601",
+			"type": "string",
+			"format": "date-time",
+            "pattern" : "^p$"
+		},
+		"periodEnd": {
+			"description": "Timestamp that indicates end priod of the alarm, ISO 8601",
+			"type": "string",
+			"format": "date-time"
+		},
+		"priority": {
 			"description": "The priority field",
 			"type": "string"
 		},
-		"tags": {
-			"description": "Tags for the alarm",
-			"type": "array",
-			"items": {
-				"type": "string"
-			},
-			"minItems": 1,
-			"uniqueItems": true
+		"conformityRules": {
+			"$refs": "#/$defs/conformityrules"
 		},
-		"wwtp": {
-			"description": "Reference to the wwtp",
-			"$ref": "https://raw.githubusercontent.com/knoerregaard/scada/main/wwtp.schema.json"
+		"$defs": {
+			"conformityrules": {
+				"description": "Each element represent a rule that groups and classify the alarm",
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"minItems": 1,
+				"uniqueItems": true
+			}
 		}
-
 	},
-	"required": [ "alarmId", "alarmTitle", "alarmPeriodStart" ]
+	"required": [ "id", "title", "alarmPeriodStart" ]
 }
